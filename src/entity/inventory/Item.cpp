@@ -3,12 +3,12 @@
 Item::Item() {
     this->name = "";
     this->description = "";
-    this->rare = Item::rarity::COMMON;
-    std::cout << "item " << this << " is now created\n";
+    this->rare = rarity::COMMON;
+    std::cout << "Item " << this << " is created\n";
 }
 
 Item::~Item() {
-    std::cout << "item " << this << " is now deleted\n";
+    std::cout << "Item " << this << " is deleted\n";
 }
 
 
@@ -20,42 +20,42 @@ std::string Item::getDescription() {
     return this->description;
 }
 
-Item::rarity Item::getRarity() {
+rarity Item::getRarity() {
     return this->rare;
 }
 
-std::string Item::setName(std::string name) {
+void Item::setName(std::string name) {
     std::cout << "the name of item " << this << " is now " << name << "\n"; 
     this->name = name;
 }
 
-std::string Item::setDescription(std::string description) {
+void Item::setDescription(std::string description) {
     std::cout << "the description of item " << this << " is now " << description << "\n"; 
     this->description = description;
 }
 
-Item::rarity Item::setRarity(rarity rare) {
+void Item::setRarity(rarity rare) {
     std::cout << "the rarity of item " << this << " is now " << rare << "\n"; 
     this->rare = rare;
 }
 
 void Item::presentation() {
-    std::cout << this->name << " : " << this->presentationRarity() << "\n\t" << description << std::endl;
+    std::cout << "{" << this->name << " : " << this->presentationRarity() << " (" << description << ")}" << std::endl;
 }
 
 std::string Item::presentationRarity() {
-    if (this->rare == Item::rarity::COMMON)
-        return "Common\n";
+    if (this->rare == rarity::COMMON)
+        return "Common";
         
-    if (this->rare == Item::rarity::UNCOMMON)
-        return "Uncommon\n";
+    if (this->rare == rarity::UNCOMMON)
+        return "Uncommon";
         
-    if (this->rare == Item::rarity::RARE)
-        return "Rare\n";
+    if (this->rare == rarity::RARE)
+        return "Rare";
         
-    if (this->rare == Item::rarity::LEGENDARY)
-        return "Legendary\n";
+    if (this->rare == rarity::LEGENDARY)
+        return "Legendary";
         
-    if (this->rare == Item::rarity::UNCOMMON)
+    if (this->rare == rarity::UNCOMMON)
         return "Unique\n";
 }

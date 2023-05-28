@@ -5,13 +5,11 @@
 #include <iostream>
 #include <memory>
 
+typedef enum rarity {
+    COMMON, UNCOMMON, RARE, LEGENDARY, UNIQUE
+} rarity;
 
 class Item {
-public:
-    typedef enum rarity {
-        COMMON, UNCOMMON, RARE, LEGENDARY, UNIQUE
-    } rarity;
-
 public:
     Item();
     ~Item();
@@ -19,6 +17,7 @@ public:
     std::string getName();
     std::string getDescription();
     rarity getRarity();
+
     void setName(std::string name);
     void setDescription(std::string description);
     void setRarity(rarity rare);

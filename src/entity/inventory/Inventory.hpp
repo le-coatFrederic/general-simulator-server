@@ -8,13 +8,11 @@
 
 class Inventory {
 public:
-    Inventory();
+    Inventory(int size);
     ~Inventory();
 
     int getSize();
     std::vector<ItemPTR> getRessources();
-
-    void setSize(int size);
 
     void addItem(ItemPTR item);
     void removeItem(ItemPTR item);

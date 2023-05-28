@@ -1,7 +1,9 @@
 #include "Inventory.hpp"
 
-Inventory::Inventory() {
+Inventory::Inventory(int size) {
     std::cout << "Inventory " << this << " is created\n";
+    this->size = size;
+    this->ressources = std::vector<ItemPTR>();
 }
 
 Inventory::~Inventory() {
@@ -18,19 +20,13 @@ std::vector<ItemPTR> Inventory::getRessources() {
 }
 
 
-void Inventory::setSize(int size) {
-    std::cout << "Size of inventory " << this << " is now " << size << "\n";
-    this->size = size;
-}
-
-
 void Inventory::addItem(ItemPTR item) {
     if (item == NULL)
         return;
 
     std::cout << "Item ";
     item->presentation();
-    std::cout << " is added to inventory " << this << "\n";
+    std::cout << "is added to inventory " << this << "\n";
 
     this->ressources.push_back(item);
 }
