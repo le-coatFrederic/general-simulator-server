@@ -24,6 +24,9 @@ void Inventory::addItem(ItemPTR item) {
     if (item == NULL)
         return;
 
+    if (this->ressources.size() >= this->size)
+        return;
+
     std::cout << "Item ";
     item->presentation();
     std::cout << "is added to inventory " << this << "\n";
@@ -31,10 +34,9 @@ void Inventory::addItem(ItemPTR item) {
     this->ressources.push_back(item);
 }
 
-void Inventory::removeItem(ItemPTR item) {
-}
-
 void Inventory::removeItem(std::string name) {
+    if (this->seekItem(name) != std::end(this->ressources))
+        this->ressources.erase(this->seekItem(name));
 }
 
 
@@ -42,4 +44,12 @@ void Inventory::showAllItem() {
     for (ItemPTR item : this->ressources) {
         item->presentation();
     }
+}
+
+auto Inventory::seekItem(std::string name) {
+    auto find = std::find(std::begin(this->ressources), std::end(this->ressources), name);
+}
+
+auto Inventory::seekItem(ItemPTR item) {
+    return this->seekItem(item->getName());
 }

@@ -59,3 +59,7 @@ std::string Item::presentationRarity() {
     if (this->rare == rarity::UNCOMMON)
         return "Unique\n";
 }
+
+bool Item::operator==(std::string const& name) {
+    return this->name == name;
+}
